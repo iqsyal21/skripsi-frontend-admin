@@ -10,6 +10,7 @@ import Artikel from "./componentDashboard/Artikel/Artikel";
 import StokVaksin from "./componentDashboard/StokVaksin/StokVaksin";
 import JadwalVaksinasi from "./componentDashboard/JadwalVaksinasi/JadwalVaksinasi";
 import DataWarga from "./componentDashboard/DataWarga/DataWarga";
+import PendaftaranVaksinasi from "./componentDashboard/PendaftaranVaksinasi/PendaftaranVaksinasi";
 
 const Dashboard = () => {
   // config headers
@@ -43,7 +44,7 @@ const Dashboard = () => {
 
   const sessionToken = sessionStorage.getItem("token");
 
-  if (sessionToken == undefined || statusToken == false) {
+  if (sessionToken === undefined || statusToken === false) {
     history.push("/akun");
   }
 
@@ -62,6 +63,7 @@ const Dashboard = () => {
         <Route path="/dashboard/stok" component={StokVaksin} />
         <Route path="/dashboard/jadwal" component={JadwalVaksinasi} />
         <Route path="/dashboard/warga" component={DataWarga} />
+        <Route path="/dashboard/pendaftaran" component={PendaftaranVaksinasi} />
         </div>
       </div>
     </div>

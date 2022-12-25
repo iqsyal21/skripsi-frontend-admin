@@ -16,7 +16,7 @@ const EditJadwal = (props) => {
     }
 
     const formData = new FormData();
-    formData.append("idstok", data.idstok.split(" ")[0]);
+    formData.append("idstok", data.idstok);
     formData.append("keterangan", data.keterangan);
     formData.append("tanggal", data.tanggal);
 
@@ -46,8 +46,8 @@ const EditJadwal = (props) => {
             <Form.Label>Pilih Vaksin</Form.Label>
             <Form.Select {...register("idstok", { required: true })}>
               {props.stokvaksin.map((item) => (
-                <option key={item.id_stok_vaksin}>
-                  {item.id_stok_vaksin} = {item.nama_jenis_vaksin} - stok
+                <option key={item.id_stok_vaksin} value={item.id_stok_vaksin}>
+                  {item.nama_jenis_vaksin} - stok
                   {" : "}
                   {item.jumlah_stok}
                 </option>

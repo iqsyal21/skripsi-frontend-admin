@@ -129,14 +129,14 @@ const JadwalVaksinasi = () => {
               <td>
                 <Button
                   variant="warning"
-                  className="mx-2"
+                  className="mx-2 my-1"
                   onClick={() => handleShowEdit(item.id_jadwal_vaksinasi)}
                 >
                   Edit
                 </Button>
                 <Button
                   variant="danger"
-                  className="mx-2"
+                  className="mx-2 my-1"
                   onClick={() => hapusJadwal(item.id_jadwal_vaksinasi)}
                 >
                   Hapus

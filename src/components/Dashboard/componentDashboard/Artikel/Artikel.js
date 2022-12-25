@@ -140,14 +140,14 @@ const Artikel = () => {
               <td>
                 <Button
                   variant="warning"
-                  className="mx-2"
+                  className="mx-2 my-2"
                   onClick={() => handleShowEdit(item.id_artikel)}
                 >
                   Edit
                 </Button>
                 <Button
                   variant="danger"
-                  className="mx-2"
+                  className="mx-2 my-2"
                   onClick={() => hapusArtikel(item.id_artikel)}
                 >
                   Hapus

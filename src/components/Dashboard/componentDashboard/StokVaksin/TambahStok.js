@@ -40,10 +40,36 @@ const TambahStok = (props) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="jenis">
             <Form.Label>Nama Jenis Vaksin</Form.Label>
-            <Form.Control
-              type="text"
-              {...register("jenis", { required: true })}
-            />
+            <div key={`inline-radio`} className="mb-3">
+              <Form.Check
+                inline
+                label="Sinovac"
+                value="Sinovac"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Astrazeneca"
+                value="Astrazeneca"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Moderna"
+                value="Moderna"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Sinopharm"
+                value="Sinopharm"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+            </div>
           </Form.Group>
           <Form.Group className="mb-3" controlId="stok">
             <Form.Label>Jumlah Stok</Form.Label>

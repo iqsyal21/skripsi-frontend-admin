@@ -10,6 +10,16 @@ const EditStok = (props) => {
 
   // put edit stok vaksin
   const editStok = (data) => {
+    if (data.stok <= 0) {
+      return alert("stok tidak sesuai");
+    }
+    if (data.digunakan <= 0) {
+      return alert("jumlah digunakan tidak sesuai");
+    }
+    if (data.stok < data.digunakan) {
+      return alert("stok tidak boleh lebih kecil dari jumlah digunakan");
+
+    }
     axios
       .put(props.link + "/stok/" + props.idArtikel, data, props.config)
       .then((response) => {
@@ -36,10 +46,36 @@ const EditStok = (props) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="jenis">
             <Form.Label>Nama Jenis Vaksin</Form.Label>
-            <Form.Control
-              type="text"
-              {...register("jenis", { required: true })}
-            />
+            <div key={`inline-radio`} className="mb-3">
+              <Form.Check
+                inline
+                label="Sinovac"
+                value="Sinovac"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Astrazeneca"
+                value="Astrazeneca"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Moderna"
+                value="Moderna"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Sinopharm"
+                value="Sinopharm"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+            </div>
           </Form.Group>
           <Form.Group className="mb-3" controlId="stok">
             <Form.Label>Jumlah Stok</Form.Label>
