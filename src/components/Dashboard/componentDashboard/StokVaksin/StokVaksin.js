@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
@@ -46,15 +47,18 @@ const StokVaksin = () => {
 
   // hapus stok vaksin
   const hapusStok = (id) => {
-    axios
-      .delete(url + "/stok/" + id, config)
-      .then((response) => {
-        alert(response.msg);
-        window.location.reload();
-      })
-      .catch((error) => {
-        alert(error.msg);
-      });
+    if (confirm("yakin untuk menghapus data ? ") == true) {
+
+      axios
+        .delete(url + "/stok/" + id, config)
+        .then((response) => {
+          alert(response.msg);
+          window.location.reload();
+        })
+        .catch((error) => {
+          alert(error.msg);
+        });
+    }
   };
 
   let no = 1;

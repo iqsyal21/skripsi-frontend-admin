@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
@@ -51,6 +52,7 @@ const JadwalVaksinasi = () => {
 
   // hapus jadwal
   const hapusJadwal = (id) => {
+  if (confirm("yakin untuk menghapus data ? ") == true) {
     axios
       .delete(url + "/jadwal/" + id, config)
       .then((response) => {
@@ -60,6 +62,7 @@ const JadwalVaksinasi = () => {
       .catch((error) => {
         alert(error.msg);
       });
+  }
   };
 
   let no = 1;

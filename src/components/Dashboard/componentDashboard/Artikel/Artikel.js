@@ -1,10 +1,9 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
-import { useForm } from "react-hook-form";
 import TambahArtikel from "./TambahArtikel";
 import EditArtikel from "./EditArtikel";
 
@@ -57,15 +56,17 @@ const Artikel = () => {
 
   // hapus artikel
   const hapusArtikel = (id) => {
-    axios
-      .delete(url + "api/artikel/" + id, config)
-      .then((response) => {
-        alert(response.msg);
-        window.location.reload();
-      })
-      .catch((error) => {
-        alert(error.msg);
-      });
+    if (confirm("yakin untuk menghapus data ? ") == true) {
+      axios
+        .delete(url + "api/artikel/" + id, config)
+        .then((response) => {
+          alert(response.msg);
+          window.location.reload();
+        })
+        .catch((error) => {
+          alert(error.msg);
+        });
+    }
   };
 
   let no = 1;

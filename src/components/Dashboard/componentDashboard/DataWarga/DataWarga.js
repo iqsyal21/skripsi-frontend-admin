@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
@@ -40,11 +41,11 @@ const DataWarga = () => {
   const handleCloseDetailWarga = () => {
     setDetailIdWarga("");
     setShowDetailWarga(false);
-  }
+  };
   const handleShowDetailWarga = (id) => {
     setDetailIdWarga(id);
     setShowDetailWarga(true);
-  }
+  };
 
   // get data warga
   const [dataWarga, setDataWarga] = useState([]);
@@ -59,15 +60,17 @@ const DataWarga = () => {
 
   // hapus data warga
   const hapusWarga = (id) => {
-    axios
-      .delete(url + "/warga/" + id, config)
-      .then((response) => {
-        alert(response.msg);
-        window.location.reload();
-      })
-      .catch((error) => {
-        alert(error.msg);
-      });
+    if (confirm("yakin untuk menghapus data ? ") == true) {
+      axios
+        .delete(url + "/warga/" + id, config)
+        .then((response) => {
+          alert(response.msg);
+          window.location.reload();
+        })
+        .catch((error) => {
+          alert(error.msg);
+        });
+    }
   };
 
   let no = 1;
