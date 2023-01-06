@@ -57,15 +57,22 @@ const TambahStok = (props) => {
               />
               <Form.Check
                 inline
-                label="Moderna"
-                value="Moderna"
+                label="Pfizer"
+                value="Pfizer"
                 type="radio"
                 {...register("jenis", { required: true })}
               />
               <Form.Check
                 inline
-                label="Sinopharm"
-                value="Sinopharm"
+                label="Janssen"
+                value="Janssen"
+                type="radio"
+                {...register("jenis", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Covovax"
+                value="Covovax"
                 type="radio"
                 {...register("jenis", { required: true })}
               />
