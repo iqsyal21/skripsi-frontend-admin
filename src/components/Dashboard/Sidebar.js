@@ -13,7 +13,6 @@ const Sidebar = () => {
             <div className="container-sidebar-item">
               <div
                 className={
-                  window.location.pathname === "/dashboard" ||
                   window.location.pathname === "/dashboard/agenda"
                     ? "active-tab"
                     : ""
