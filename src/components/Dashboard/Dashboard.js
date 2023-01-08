@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "./Sidebar";
 import "./dashboard.css";
+import logo from "../../images/puskesmaslogo.png";
 import NavbarAdmin from "./NavbarAdmin";
 import Agenda from "./componentDashboard/Agenda/Agenda";
 import Artikel from "./componentDashboard/Artikel/Artikel";
@@ -52,18 +53,30 @@ const Dashboard = () => {
     <div>
       <div className="container-dashboard">
         <div className="container-sidebar">
-          <h2>Dashboard</h2>
+          <div className="logo-sidebar">
+          <img
+            alt="logo puskesmas cilebut"
+            src={logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{" "}
+          Puskesmas Cilebut
+          </div>
           <Sidebar />
         </div>
         <div className="container-contentdashboard">
-        <NavbarAdmin />
-        <Route exact path="/dashboard" component={Agenda} />
-        <Route path="/dashboard/agenda" component={Agenda} />
-        <Route path="/dashboard/artikel" component={Artikel} />
-        <Route path="/dashboard/stok" component={StokVaksin} />
-        <Route path="/dashboard/jadwal" component={JadwalVaksinasi} />
-        <Route path="/dashboard/warga" component={DataWarga} />
-        <Route path="/dashboard/pendaftaran" component={PendaftaranVaksinasi} />
+          <NavbarAdmin />
+          <Route exact path="/dashboard" component={Agenda} />
+          <Route path="/dashboard/agenda" component={Agenda} />
+          <Route path="/dashboard/artikel" component={Artikel} />
+          <Route path="/dashboard/stok" component={StokVaksin} />
+          <Route path="/dashboard/jadwal" component={JadwalVaksinasi} />
+          <Route path="/dashboard/warga" component={DataWarga} />
+          <Route
+            path="/dashboard/pendaftaran"
+            component={PendaftaranVaksinasi}
+          />
         </div>
       </div>
     </div>

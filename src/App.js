@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Akun from './components/akun/Akun';
 import Verifikasi from './components/akun/Verifikasi';
 import Dashboard from './components/Dashboard/Dashboard';
-import "./App.css";
 
 const App = () => {
   return (

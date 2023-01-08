@@ -14,7 +14,7 @@ const NavbarAdmin = () => {
   return (
     <Navbar sticky="top" className="navbar-admin-bg" expand="lg">
       <Container>
-        <Navbar.Brand className="text-light">Hello Admin</Navbar.Brand>
+        <Navbar.Brand className="text-light">Dashboard Admin</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Button variant="danger" onClick={onLogout}>
