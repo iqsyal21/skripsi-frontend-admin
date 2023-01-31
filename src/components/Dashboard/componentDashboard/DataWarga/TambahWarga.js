@@ -31,6 +31,8 @@ const TambahWarga = (props) => {
             <Form.Label>NIK</Form.Label>
             <Form.Control
               type="text"
+              pattern="[0-9]{16}"
+              title="harus angka yang terdiri dari 16 digit"
               {...register("nik", { required: true })}
             />
           </Form.Group>
@@ -91,6 +93,63 @@ const TambahWarga = (props) => {
                 value={false}
                 type="radio"
                 {...register("statcov", { required: true })}
+              />
+            </div>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="statvak1">
+            <Form.Label>Status Vaksin 1 : </Form.Label>
+            <div key={`inline-radio`} className="mb-3">
+              <Form.Check
+                inline
+                label="Sudah"
+                value={true}
+                type="radio"
+                {...register("statvak1", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Belum"
+                value={false}
+                type="radio"
+                {...register("statvak1", { required: true })}
+              />
+            </div>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="statvak2">
+            <Form.Label>Status Vaksin 2 : </Form.Label>
+            <div key={`inline-radio`} className="mb-3">
+              <Form.Check
+                inline
+                label="Sudah"
+                value={true}
+                type="radio"
+                {...register("statvak2", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Belum"
+                value={false}
+                type="radio"
+                {...register("statvak2", { required: true })}
+              />
+            </div>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="statboost">
+            <Form.Label>Status Vaksin Booster : </Form.Label>
+            <div key={`inline-radio`} className="mb-3">
+              <Form.Check
+                inline
+                label="Sudah"
+                value={true}
+                type="radio"
+                {...register("statboost", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Belum"
+                value={false}
+                type="radio"
+                {...register("statboost", { required: true })}
               />
             </div>
           </Form.Group>

@@ -93,6 +93,48 @@ const DetailWarga = (props) => {
             <tr>
               <Row>
                 <Col sm={4}>
+                  <td>Status Vaksin 1</td>
+                </Col>
+                <Col sm={8}>
+                  {dataWarga.status_vaksin1 === true ? (
+                    <td>: Sudah</td>
+                  ) : (
+                    <td>: Belum</td>
+                  )}
+                </Col>
+              </Row>
+            </tr>
+            <tr>
+              <Row>
+                <Col sm={4}>
+                  <td>Status Vaksin 2</td>
+                </Col>
+                <Col sm={8}>
+                  {dataWarga.status_vaksin2 === true ? (
+                    <td>: Sudah</td>
+                  ) : (
+                    <td>: Belum</td>
+                  )}
+                </Col>
+              </Row>
+            </tr>
+            <tr>
+              <Row>
+                <Col sm={4}>
+                  <td>Status Vaksin Booster</td>
+                </Col>
+                <Col sm={8}>
+                  {dataWarga.status_vaksinbooster === true ? (
+                    <td>: Sudah</td>
+                  ) : (
+                    <td>: Belum</td>
+                  )}
+                </Col>
+              </Row>
+            </tr>
+            <tr>
+              <Row>
+                <Col sm={4}>
                   <td>Donor Plasma</td>
                 </Col>
                 <Col sm={8}>

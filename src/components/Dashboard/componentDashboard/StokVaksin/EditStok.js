@@ -45,7 +45,7 @@ const EditStok = (props) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="jenis">
-            <Form.Label>Nama Jenis Vaksin</Form.Label>
+            <Form.Label>Nama Jenis Vaksin :</Form.Label>
             <div key={`inline-radio`} className="mb-3">
               <Form.Check
                 inline
@@ -81,6 +81,32 @@ const EditStok = (props) => {
                 value="Covovax"
                 type="radio"
                 {...register("jenis", { required: true })}
+              />
+            </div>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="tipe">
+            <Form.Label>Tipe Vaksin :</Form.Label>
+            <div key={`inline-radio`} className="mb-3">
+              <Form.Check
+                inline
+                label="Vaksin 1"
+                value="1"
+                type="radio"
+                {...register("tipe", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Vaksin 2"
+                value="2"
+                type="radio"
+                {...register("tipe", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Vaksin Booster"
+                value="3"
+                type="radio"
+                {...register("tipe", { required: true })}
               />
             </div>
           </Form.Group>

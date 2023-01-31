@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
@@ -16,7 +16,7 @@ const Register = (props) => {
     axios
       .post("http://localhost:5000/api/admin/register", data)
       .then((response) => {
-        alert(response.msg)
+        alert(response.msg);
         sessionStorage.setItem("idAdmin", response.id);
         history.push("/verifikasi");
       })
@@ -51,6 +51,8 @@ const Register = (props) => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
+                  pattern=".{8,}"
+                  title="panjang password minimal 8 karakter"
                   {...register("password", { required: true })}
                 />
               </Form.Group>
@@ -77,3 +79,9 @@ const Register = (props) => {
 };
 
 export default Register;
+
+/*
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid zip.
+          </Form.Control.Feedback>
+*/

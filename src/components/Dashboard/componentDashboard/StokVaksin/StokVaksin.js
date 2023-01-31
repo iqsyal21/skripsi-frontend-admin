@@ -48,7 +48,6 @@ const StokVaksin = () => {
   // hapus stok vaksin
   const hapusStok = (id) => {
     if (confirm("yakin untuk menghapus data ? ") == true) {
-
       axios
         .delete(url + "/stok/" + id, config)
         .then((response) => {
@@ -77,7 +76,12 @@ const StokVaksin = () => {
       {/* endmodal tambah*/}
 
       {/* modal edit */}
-      <Modal show={showEditStok} onHide={handleCloseEdit} link={url} config={config}>
+      <Modal
+        show={showEditStok}
+        onHide={handleCloseEdit}
+        link={url}
+        config={config}
+      >
         <EditStok link={url} idArtikel={editIdStok} config={config} />
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseEdit}>
@@ -103,6 +107,7 @@ const StokVaksin = () => {
             <th>No</th>
             <th>Tanggal Masuk</th>
             <th>Nama Jenis Vaksin</th>
+            <th>Tipe Vaksin</th>
             <th>Jumlah Stok</th>
             <th>Jumlah Digunakan</th>
             <th>Aksi</th>
@@ -114,6 +119,13 @@ const StokVaksin = () => {
               <td>{no++}</td>
               <td>{item.tanggal_masuk.split("T")[0]}</td>
               <td>{item.nama_jenis_vaksin}</td>
+              <td>
+                {item.tipe_vaksin == 1
+                  ? "Vaksin 1"
+                  : item.tipe_vaksin == 2
+                  ? "Vaksin 2"
+                  : "Vaksin Booster"}
+              </td>
               <td>{item.jumlah_stok}</td>
               <td>{item.jumlah_digunakan}</td>
               <td>
