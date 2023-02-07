@@ -20,6 +20,14 @@ const DetailJadwal = (props) => {
             : "data tidak sesuai, segera update atau hapus"}
         </p>
         <p>
+          Tipe Vaksin :{" "}
+          {props.dataJadwal.stokvaksin.tipe_vaksin == 1
+            ? "Vaksin 1"
+            : props.dataJadwal.stokvaksin.tipe_vaksin == 2
+            ? "Vaksin 2"
+            : "Vaksin Booster"}
+        </p>
+        <p>
           Kuota :{" "}
           {props.dataJadwal.stokvaksin
             ? `${

@@ -12,15 +12,12 @@ const EditStok = (props) => {
   const editStok = (data) => {
     if (data.stok <= 0) {
       return alert("stok tidak sesuai");
-    }
-    if (data.digunakan < 0) {
+    } else if (data.digunakan < 0) {
       return alert("jumlah digunakan tidak sesuai");
-    }
-    if (data.stok < data.digunakan) {
+    } else if (data.stok < data.digunakan) {
       return alert("stok tidak boleh lebih kecil dari jumlah digunakan");
-
-    }
-    axios
+    } else {
+      axios
       .put(props.link + "/stok/" + props.idArtikel, data, props.config)
       .then((response) => {
         alert(response.msg);
@@ -29,6 +26,7 @@ const EditStok = (props) => {
       .catch((error) => {
         alert(error.msg);
       });
+    }
   };
   return (
     <div>
