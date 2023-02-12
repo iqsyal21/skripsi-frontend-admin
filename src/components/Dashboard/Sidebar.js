@@ -1,10 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import FullHeight from "react-full-height";
 
 const Sidebar = () => {
+  const history = useHistory();
+
   return (
     <div>
       <FullHeight style={{ overflow: "hidden" }}>
@@ -13,13 +16,16 @@ const Sidebar = () => {
             <div className="container-sidebar-item">
               <div
                 className={
-                  window.location.pathname ===
-                  ("/dashboard" || "/dashboard/agenda")
+                  window.location.pathname === "/dashboard" ||
+                  window.location.pathname === "/dashboard/agenda"
                     ? "active-tab"
                     : ""
                 }
               >
-                <ListGroup.Item action href="/dashboard/agenda">
+                <ListGroup.Item
+                  action
+                  onClick={() => history.push("/dashboard/agenda")}
+                >
                   Agenda
                 </ListGroup.Item>
               </div>
@@ -30,7 +36,10 @@ const Sidebar = () => {
                     : ""
                 }
               >
-                <ListGroup.Item action href="/dashboard/artikel">
+                <ListGroup.Item
+                  action
+                  onClick={() => history.push("/dashboard/artikel")}
+                >
                   Artikel
                 </ListGroup.Item>
               </div>
@@ -41,7 +50,10 @@ const Sidebar = () => {
                     : ""
                 }
               >
-                <ListGroup.Item action href="/dashboard/stok">
+                <ListGroup.Item
+                  action
+                  onClick={() => history.push("/dashboard/stok")}
+                >
                   Stok Vaksin
                 </ListGroup.Item>
               </div>
@@ -52,7 +64,10 @@ const Sidebar = () => {
                     : ""
                 }
               >
-                <ListGroup.Item action href="/dashboard/jadwal">
+                <ListGroup.Item
+                  action
+                  onClick={() => history.push("/dashboard/jadwal")}
+                >
                   Jadwal Vaksinasi
                 </ListGroup.Item>
               </div>
@@ -63,7 +78,10 @@ const Sidebar = () => {
                     : ""
                 }
               >
-                <ListGroup.Item action href="/dashboard/warga">
+                <ListGroup.Item
+                  action
+                  onClick={() => history.push("/dashboard/warga")}
+                >
                   Data Warga
                 </ListGroup.Item>
               </div>
@@ -74,7 +92,10 @@ const Sidebar = () => {
                     : ""
                 }
               >
-                <ListGroup.Item action href="/dashboard/pendaftaran">
+                <ListGroup.Item
+                  action
+                  onClick={() => history.push("/dashboard/pendaftaran")}
+                >
                   Pendaftaran Vaksinasi
                 </ListGroup.Item>
               </div>
