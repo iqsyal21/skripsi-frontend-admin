@@ -40,7 +40,7 @@ const Dashboard = () => {
           history.push("/akun");
           window.location.reload();
         });
-    }, 10000);
+    }, 20000);
   });
 
   const sessionToken = sessionStorage.getItem("token");
