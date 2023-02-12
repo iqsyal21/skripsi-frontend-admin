@@ -6,7 +6,6 @@ import Sidebar from "./Sidebar";
 import "./dashboard.css";
 import logo from "../../images/puskesmaslogo.png";
 import NavbarAdmin from "./NavbarAdmin";
-import Welcome from "./Welcome";
 import Agenda from "./componentDashboard/Agenda/Agenda";
 import Artikel from "./componentDashboard/Artikel/Artikel";
 import StokVaksin from "./componentDashboard/StokVaksin/StokVaksin";
@@ -41,7 +40,7 @@ const Dashboard = () => {
           history.push("/akun");
           window.location.reload();
         });
-    }, 10000);
+    }, 20000);
   });
 
   const sessionToken = sessionStorage.getItem("token");
@@ -68,7 +67,7 @@ const Dashboard = () => {
         </div>
         <div className="container-contentdashboard">
           <NavbarAdmin />
-          <Route exact path="/dashboard" component={Welcome} />
+          <Route exact path="/dashboard" component={Agenda} />
           <Route path="/dashboard/agenda" component={Agenda} />
           <Route path="/dashboard/artikel" component={Artikel} />
           <Route path="/dashboard/stok" component={StokVaksin} />

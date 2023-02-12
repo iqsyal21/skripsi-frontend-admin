@@ -12,15 +12,12 @@ const EditStok = (props) => {
   const editStok = (data) => {
     if (data.stok <= 0) {
       return alert("stok tidak sesuai");
-    }
-    if (data.digunakan < 0) {
+    } else if (data.digunakan < 0) {
       return alert("jumlah digunakan tidak sesuai");
-    }
-    if (data.stok < data.digunakan) {
+    } else if (data.stok < data.digunakan) {
       return alert("stok tidak boleh lebih kecil dari jumlah digunakan");
-
-    }
-    axios
+    } else {
+      axios
       .put(props.link + "/stok/" + props.idArtikel, data, props.config)
       .then((response) => {
         alert(response.msg);
@@ -29,6 +26,7 @@ const EditStok = (props) => {
       .catch((error) => {
         alert(error.msg);
       });
+    }
   };
   return (
     <div>
@@ -45,7 +43,7 @@ const EditStok = (props) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="jenis">
-            <Form.Label>Nama Jenis Vaksin</Form.Label>
+            <Form.Label>Nama Jenis Vaksin :</Form.Label>
             <div key={`inline-radio`} className="mb-3">
               <Form.Check
                 inline
@@ -81,6 +79,32 @@ const EditStok = (props) => {
                 value="Covovax"
                 type="radio"
                 {...register("jenis", { required: true })}
+              />
+            </div>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="tipe">
+            <Form.Label>Tipe Vaksin :</Form.Label>
+            <div key={`inline-radio`} className="mb-3">
+              <Form.Check
+                inline
+                label="Vaksin 1"
+                value="1"
+                type="radio"
+                {...register("tipe", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Vaksin 2"
+                value="2"
+                type="radio"
+                {...register("tipe", { required: true })}
+              />
+              <Form.Check
+                inline
+                label="Vaksin Booster"
+                value="3"
+                type="radio"
+                {...register("tipe", { required: true })}
               />
             </div>
           </Form.Group>

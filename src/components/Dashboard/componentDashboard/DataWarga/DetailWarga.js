@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-bootstrap/Modal";
@@ -86,6 +87,48 @@ const DetailWarga = (props) => {
                     <td>: Positif</td>
                   ) : (
                     <td>: Negatif</td>
+                  )}
+                </Col>
+              </Row>
+            </tr>
+            <tr>
+              <Row>
+                <Col sm={4}>
+                  <td>Status Vaksin 1</td>
+                </Col>
+                <Col sm={8}>
+                  {dataWarga.status_vaksin1 === true ? (
+                    <td>: Sudah</td>
+                  ) : (
+                    <td>: Belum</td>
+                  )}
+                </Col>
+              </Row>
+            </tr>
+            <tr>
+              <Row>
+                <Col sm={4}>
+                  <td>Status Vaksin 2</td>
+                </Col>
+                <Col sm={8}>
+                  {dataWarga.status_vaksin2 === true ? (
+                    <td>: Sudah</td>
+                  ) : (
+                    <td>: Belum</td>
+                  )}
+                </Col>
+              </Row>
+            </tr>
+            <tr>
+              <Row>
+                <Col sm={4}>
+                  <td>Status Vaksin Booster</td>
+                </Col>
+                <Col sm={8}>
+                  {dataWarga.status_vaksinbooster === true ? (
+                    <td>: Sudah</td>
+                  ) : (
+                    <td>: Belum</td>
                   )}
                 </Col>
               </Row>

@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 
@@ -18,6 +19,14 @@ const DetailJadwal = (props) => {
           {props.dataJadwal.stokvaksin
             ? `${props.dataJadwal.stokvaksin.nama_jenis_vaksin}`
             : "data tidak sesuai, segera update atau hapus"}
+        </p>
+        <p>
+          Tipe Vaksin :{" "}
+          {props.dataJadwal.stokvaksin.tipe_vaksin == 1
+            ? "Vaksin 1"
+            : props.dataJadwal.stokvaksin.tipe_vaksin == 2
+            ? "Vaksin 2"
+            : "Vaksin Booster"}
         </p>
         <p>
           Kuota :{" "}

@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -52,17 +54,17 @@ const JadwalVaksinasi = () => {
 
   // hapus jadwal
   const hapusJadwal = (id) => {
-  if (confirm("yakin untuk menghapus data ? ") == true) {
-    axios
-      .delete(url + "/jadwal/" + id, config)
-      .then((response) => {
-        alert(response.msg);
-        window.location.reload();
-      })
-      .catch((error) => {
-        alert(error.msg);
-      });
-  }
+    if (confirm("yakin untuk menghapus data ? ") == true) {
+      axios
+        .delete(url + "/jadwal/" + id, config)
+        .then((response) => {
+          alert(response.msg);
+          window.location.reload();
+        })
+        .catch((error) => {
+          alert(error.msg);
+        });
+    }
   };
 
   let no = 1;
@@ -81,7 +83,12 @@ const JadwalVaksinasi = () => {
       {/* endmodal tambah*/}
       {/* modal edit */}
       <Modal show={showEditJadwal} onHide={handleCloseEdit}>
-        <EditJadwal link={url} idJadwal={editIdJadwal} token={token} stokvaksin={stokVaksin} />
+        <EditJadwal
+          link={url}
+          idJadwal={editIdJadwal}
+          token={token}
+          stokvaksin={stokVaksin}
+        />
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseEdit}>
             Close
@@ -105,6 +112,7 @@ const JadwalVaksinasi = () => {
             <th>No</th>
             <th>Tanggal Vaksinasi</th>
             <th>Nama Jenis Vaksin</th>
+            <th>Tipe Vaksin</th>
             <th>Kuota</th>
             <th>Keterangan</th>
             <th>Aksi</th>
@@ -117,6 +125,17 @@ const JadwalVaksinasi = () => {
               <td>{item.tanggal_vaksinasi.split("T")[0]}</td>
               {item.stokvaksin ? (
                 <td>{item.stokvaksin.nama_jenis_vaksin}</td>
+              ) : (
+                <td>data tidak sesuai, segera update atau hapus</td>
+              )}
+              {item.stokvaksin ? (
+                <td>
+                  {item.stokvaksin.tipe_vaksin == 1
+                    ? "Vaksin 1"
+                    : item.stokvaksin.tipe_vaksin == 2
+                    ? "Vaksin 2"
+                    : "Vaksin Booster"}
+                </td>
               ) : (
                 <td>data tidak sesuai, segera update atau hapus</td>
               )}

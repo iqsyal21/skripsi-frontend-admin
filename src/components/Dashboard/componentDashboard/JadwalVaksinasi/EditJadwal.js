@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -47,7 +48,13 @@ const EditJadwal = (props) => {
             <Form.Select {...register("idstok", { required: true })}>
               {props.stokvaksin.map((item) => (
                 <option key={item.id_stok_vaksin} value={item.id_stok_vaksin}>
-                  {item.nama_jenis_vaksin} - stok
+                  {item.nama_jenis_vaksin} -{" "}
+                  {item.tipe_vaksin == 1
+                    ? "Vaksin 1"
+                    : item.tipe_vaksin == 2
+                    ? "Vaksin 2"
+                    : "Vaksin Booster"} -{" "}
+                  stok
                   {" : "}
                   {item.jumlah_stok}
                 </option>
